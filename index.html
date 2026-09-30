@@ -3330,173 +3330,193 @@
             </div>
             <!-- ===== /Hanging Frames + Our Wedding Headline ===== -->
 
-            <!-- ===== Family Blessing Section (custom, animated) ===== -->
+            <!-- ===== Family Blessing Section (custom, animated, dark gold) ===== -->
             <div id="fb-section" class="fb-section">
+                <link href="https://fonts.googleapis.com/css2?family=Aref+Ruqaa:wght@400;700&family=Alex+Brush&family=Amiri:wght@400;700&display=swap" rel="stylesheet">
                 <style>
-                    #fb-section {
-                        position: relative;
-                        background-color: #f9e6d4;
-                        padding: 70px 24px 60px;
-                        text-align: center;
-                        direction: rtl;
-                        overflow: hidden;
+                    #fb-section{
+                        --gold:#d9b27a; --gold-hi:#f3d9a4; --gold-lo:#9a6e3a; --cream:#f1e2c6;
+                        position:relative; direction:rtl; text-align:center; overflow:hidden;
+                        padding:64px 22px 56px; color:var(--cream);
+                        background:
+                            radial-gradient(ellipse at 50% 38%, #4a2d17 0%, #341d0e 45%, #24130a 100%);
                     }
-                    .fb-title {
-                        font-family: 'Amiri', serif;
-                        font-weight: 700;
-                        font-size: 30px;
-                        color: #4a3624;
-                        margin: 0 0 10px;
-                        opacity: 1;
-                        transform: translateY(14px);
-                        transition: opacity 0.9s ease, transform 0.9s ease;
-                    }
-                    .fb-subtitle {
-                        font-family: 'EB Garamond', serif;
-                        font-style: italic;
-                        font-size: 18px;
-                        color: #af9b6a;
-                        margin: 0 0 45px;
-                        opacity: 1;
-                        transform: translateY(14px);
-                        transition: opacity 0.9s ease 0.1s, transform 0.9s ease 0.1s;
-                    }
-                    #fb-section.fb-inview .fb-title,
-                    #fb-section.fb-inview .fb-subtitle { opacity: 1; transform: translateY(0); }
+                    /* outer arched frame */
+                    #fb-section .fb-arch{position:absolute;inset:14px 14px 14px 14px;width:calc(100% - 28px);height:calc(100% - 28px);pointer-events:none;z-index:0}
+                    #fb-section .fb-arch path{fill:none;stroke:url(#fbGold);stroke-width:1.4;vector-effect:non-scaling-stroke}
+                    #fb-section .fb-arch path.thin{stroke-width:.8;opacity:.55}
+                    #fb-section .fb-wrap{position:relative;z-index:2;max-width:460px;margin:0 auto}
 
-                    .fb-tree {
-                        position: relative;
-                        max-width: 460px;
-                        margin: 0 auto 30px;
-                        height: 150px;
-                    }
-                    .fb-heart {
-                        width: 62px;
-                        height: 62px;
-                        border-radius: 50%;
-                        background: #fffaf2;
-                        border: 1.5px solid #c9ad7a;
-                        display: flex;
-                        align-items: center;
-                        justify-content: center;
-                        margin: 0 auto;
-                        position: relative;
-                        z-index: 2;
-                        font-size: 24px;
-                        color: #8a6f45;
-                        opacity: 1;
-                        transform: scale(0.6);
-                        transition: opacity 0.7s ease, transform 0.7s ease;
-                    }
-                    #fb-section.fb-inview .fb-heart { opacity: 1; transform: scale(1); }
-                    .fb-lines {
-                        position: absolute;
-                        top: 31px;
-                        left: 50%;
-                        transform: translateX(-50%);
-                        width: 100%;
-                        max-width: 420px;
-                        height: 110px;
-                        z-index: 1;
-                    }
-                    .fb-lines path {
-                        stroke-dasharray: 260;
-                        stroke-dashoffset: 260;
-                        transition: stroke-dashoffset 1.1s ease 0.3s;
-                    }
-                    #fb-section.fb-inview .fb-lines path { stroke-dashoffset: 0; }
-                    .fb-dot {
-                        opacity: 0;
-                        transition: opacity 0.4s ease 1.1s;
-                    }
-                    #fb-section.fb-inview .fb-dot { opacity: 1; }
+                    /* title */
+                    .fb-title{font-family:'Aref Ruqaa','Amiri',serif;font-weight:700;font-size:34px;line-height:1.5;margin:26px 0 10px;
+                        background:linear-gradient(180deg,#fff3d6 0%,#ecd3a0 55%,#c79b5e 100%);-webkit-background-clip:text;background-clip:text;color:transparent;
+                        filter:drop-shadow(0 2px 6px rgba(0,0,0,.45));opacity:0;transform:translateY(14px);transition:opacity .9s ease,transform .9s ease}
+                    .fb-divider{display:block;width:100%;max-width:340px;height:22px;margin:4px auto 10px;opacity:0;transition:opacity .9s ease .15s}
+                    .fb-subtitle{font-family:'Amiri',serif;font-size:21px;color:#d8b98a;margin:0 0 34px;opacity:0;transform:translateY(14px);transition:opacity .9s ease .2s,transform .9s ease .2s}
+                    #fb-section.fb-inview .fb-title,#fb-section.fb-inview .fb-subtitle{opacity:1;transform:translateY(0)}
+                    #fb-section.fb-inview .fb-divider{opacity:1}
 
-                    .fb-cards {
-                        display: flex;
-                        justify-content: center;
-                        gap: 26px;
-                        max-width: 460px;
-                        margin: 0 auto 40px;
-                    }
-                    .fb-card {
-                        flex: 1 1 0;
-                        max-width: 190px;
-                        background: #fffaf2;
-                        border-radius: 999px / 60px;
-                        border: 1px solid #e6d3ae;
-                        padding: 26px 14px;
-                        box-shadow: 0 12px 26px rgba(74,59,40,0.10);
-                        opacity: 1;
-                        transform: translateY(24px);
-                        transition: opacity 0.8s ease, transform 0.8s ease;
-                    }
-                    .fb-card.right { transition-delay: 0.5s; }
-                    .fb-card.left { transition-delay: 0.65s; }
-                    #fb-section.fb-inview .fb-card { opacity: 1; transform: translateY(0); }
-                    .fb-card .label {
-                        font-family: 'EB Garamond', serif;
-                        font-size: 14px;
-                        letter-spacing: 1px;
-                        color: #af9b6a;
-                        margin-bottom: 8px;
-                    }
-                    .fb-card .name {
-                        font-family: 'Amiri', serif;
-                        font-weight: 700;
-                        font-size: 20px;
-                        color: #3f3122;
-                    }
+                    /* heart + tree */
+                    .fb-tree{position:relative;max-width:420px;margin:0 auto;height:150px}
+                    .fb-heart{width:64px;height:64px;margin:0 auto;border-radius:50%;position:relative;z-index:2;
+                        border:1.3px solid var(--gold);background:radial-gradient(circle,#3a2412 0%,#2a180b 100%);
+                        box-shadow:0 0 18px rgba(217,178,122,.35),inset 0 0 10px rgba(217,178,122,.18);
+                        display:flex;align-items:center;justify-content:center;opacity:0;transform:scale(.6);transition:opacity .7s ease,transform .7s ease}
+                    .fb-heart svg{width:30px;height:30px;filter:drop-shadow(0 0 5px rgba(243,217,164,.6))}
+                    #fb-section.fb-inview .fb-heart{opacity:1;transform:scale(1)}
+                    .fb-lines{position:absolute;top:32px;left:0;width:100%;height:118px;z-index:1;overflow:visible}
+                    .fb-lines path.ln{fill:none;stroke:url(#fbGold);stroke-width:1.3;stroke-dasharray:300;stroke-dashoffset:300;transition:stroke-dashoffset 1.2s ease .3s}
+                    #fb-section.fb-inview .fb-lines path.ln{stroke-dashoffset:0}
+                    .fb-lines .fade{opacity:0;transition:opacity .6s ease 1.1s}
+                    #fb-section.fb-inview .fb-lines .fade{opacity:1}
 
-                    .fb-note {
-                        font-family: 'EB Garamond', serif;
-                        font-size: 17px;
-                        line-height: 1.9;
-                        color: #5b4a34;
-                        max-width: 460px;
-                        margin: 0 auto;
-                        opacity: 1;
-                        transform: translateY(14px);
-                        transition: opacity 0.9s ease 0.8s, transform 0.9s ease 0.8s;
-                    }
-                    #fb-section.fb-inview .fb-note { opacity: 1; transform: translateY(0); }
+                    /* cards */
+                    .fb-cards{display:flex;justify-content:center;gap:14px;margin:-8px auto 40px;direction:rtl}
+                    .fb-card{position:relative;flex:1 1 0;max-width:210px;min-height:140px;padding:30px 10px 28px;display:flex;flex-direction:column;justify-content:center;
+                        opacity:0;transform:translateY(24px);transition:opacity .8s ease,transform .8s ease}
+                    .fb-card.right{transition-delay:.5s}.fb-card.left{transition-delay:.65s}
+                    #fb-section.fb-inview .fb-card{opacity:1;transform:translateY(0)}
+                    .fb-card .frame{position:absolute;inset:0;width:100%;height:100%;overflow:visible}
+                    .fb-card .frame .bg{fill:rgba(28,16,8,.72)}
+                    .fb-card .frame .o{fill:none;stroke:url(#fbGold);stroke-width:1.6;vector-effect:non-scaling-stroke}
+                    .fb-card .frame .i{fill:none;stroke:var(--gold);stroke-width:.8;opacity:.6;vector-effect:non-scaling-stroke}
+                    .fb-card .orn{position:absolute;left:50%;width:56px;height:38px;transform:translateX(-50%);filter:drop-shadow(0 0 6px rgba(243,217,164,.55))}
+                    .fb-card .orn.t{top:-20px}.fb-card .orn.b{bottom:-20px;transform:translateX(-50%) scaleY(-1)}
+                    .fb-card .in{position:relative;z-index:2;width:100%}
+                    .fb-card .label{font-family:'Amiri',serif;font-size:15px;color:#d8b98a;margin-bottom:8px}
+                    .fb-card .sep{display:block;width:78%;height:10px;margin:0 auto 12px}
+                    .fb-card .name{font-family:'Aref Ruqaa','Amiri',serif;font-weight:700;font-size:25px;line-height:1.45;
+                        background:linear-gradient(180deg,#fff0cc 0%,#e7c88f 55%,#b98a4e 100%);-webkit-background-clip:text;background-clip:text;color:transparent;
+                        filter:drop-shadow(0 2px 4px rgba(0,0,0,.6))}
 
-                    @media screen and (max-width: 479px) {
-                        .fb-title { font-size: 24px; }
-                        .fb-card { padding: 20px 10px; }
-                        .fb-card .name { font-size: 17px; }
+                    /* note + location */
+                    .fb-note{font-family:'Amiri',serif;font-size:19px;line-height:2.1;color:#ecdcc0;max-width:430px;margin:0 auto 14px;opacity:0;transform:translateY(14px);transition:opacity .9s ease .8s,transform .9s ease .8s}
+                    #fb-section.fb-inview .fb-note{opacity:1;transform:translateY(0)}
+                    .fb-loc{display:block;font-family:'Alex Brush',cursive;font-size:46px;line-height:1.2;margin:10px 0 0;text-decoration:none;
+                        background:linear-gradient(180deg,#f5dca8,#c79b5e);-webkit-background-clip:text;background-clip:text;color:transparent;direction:ltr;opacity:0;transition:opacity .9s ease 1s}
+                    #fb-section.fb-inview .fb-loc{opacity:1}
+
+                    /* floating leaves */
+                    .fb-leaf{position:absolute;z-index:1;width:30px;height:38px;opacity:.85;pointer-events:none;
+                        background:linear-gradient(145deg,#e9c58f,#a97a43);border-radius:0 100% 0 100%;filter:blur(.4px) drop-shadow(0 2px 4px rgba(0,0,0,.4));
+                        animation:fbFloat 7s ease-in-out infinite}
+                    @keyframes fbFloat{0%,100%{transform:translateY(0) rotate(var(--r))}50%{transform:translateY(-12px) rotate(calc(var(--r) + 14deg))}}
+
+                    @media screen and (max-width:479px){
+                        .fb-title{font-size:29px}
+                        .fb-subtitle{font-size:19px}
+                        .fb-card .name{font-size:21px}
+                        .fb-card .label{font-size:13px}
+                        .fb-note{font-size:17px}
                     }
+                    @media (prefers-reduced-motion:reduce){.fb-leaf{animation:none}}
                 </style>
 
-                <div class="fb-title">بمباركة أهلهما الكرام</div>
-                <div class="fb-subtitle">آل الزوقري وآل المقبلي</div>
+                <!-- shared defs -->
+                <svg width="0" height="0" style="position:absolute" aria-hidden="true">
+                    <defs>
+                        <linearGradient id="fbGold" x1="0" y1="0" x2="0" y2="1">
+                            <stop offset="0" stop-color="#f3d9a4"/><stop offset=".5" stop-color="#d9b27a"/><stop offset="1" stop-color="#a97a43"/>
+                        </linearGradient>
+                        <!-- 4-petal corner ornament -->
+                        <g id="fbOrn">
+                            <path d="M28 2 C31 10 33 12 41 12 C33 14 31 16 28 24 C25 16 23 14 15 12 C23 12 25 10 28 2Z" fill="none" stroke="url(#fbGold)" stroke-width="1.3"/>
+                            <path d="M28 7 C29.5 11 30.5 11.8 34.5 12 C30.5 12.4 29.5 13.2 28 17 C26.5 13.2 25.5 12.4 21.5 12 C25.5 11.8 26.5 11 28 7Z" fill="#f3d9a4" opacity=".9"/>
+                            <path d="M2 24 C12 24 16 20 22 14 M54 24 C44 24 40 20 34 14" fill="none" stroke="#d9b27a" stroke-width="1.1"/>
+                            <path d="M28 24 L28 36" stroke="#d9b27a" stroke-width="1.1"/>
+                            <circle cx="28" cy="12" r="1.6" fill="#fff0cc"/>
+                        </g>
+                        <!-- divider with diamond -->
+                        <g id="fbDiv">
+                            <path d="M0 11 H178" stroke="#d9b27a" stroke-width="1" opacity=".8"/>
+                            <path d="M222 11 H400" stroke="#d9b27a" stroke-width="1" opacity=".8"/>
+                            <path d="M200 2 L209 11 L200 20 L191 11Z" fill="none" stroke="url(#fbGold)" stroke-width="1.3"/>
+                            <path d="M200 6.5 L204.5 11 L200 15.5 L195.5 11Z" fill="#f3d9a4"/>
+                            <circle cx="184" cy="11" r="1.6" fill="#d9b27a"/><circle cx="216" cy="11" r="1.6" fill="#d9b27a"/>
+                        </g>
+                    </defs>
+                </svg>
 
-                <div class="fb-tree">
-                    <div class="fb-heart">♥</div>
-                    <svg class="fb-lines" viewBox="0 0 420 110" fill="none" xmlns="http://www.w3.org/2000/svg">
-                        <path d="M210 0 C210 40, 120 40, 120 90" stroke="#c9ad7a" stroke-width="1.4"/>
-                        <path d="M210 0 C210 40, 300 40, 300 90" stroke="#c9ad7a" stroke-width="1.4"/>
-                        <circle class="fb-dot" cx="163" cy="52" r="3" fill="#c9ad7a"/>
-                        <circle class="fb-dot" cx="257" cy="52" r="3" fill="#c9ad7a"/>
-                    </svg>
-                </div>
+                <!-- outer arched frame (double line, scalloped top) -->
+                <svg class="fb-arch" viewBox="0 0 400 1000" preserveAspectRatio="none" aria-hidden="true">
+                    <path d="M4 60 Q4 30 34 30 Q90 30 120 14 Q160 -2 200 -2 Q240 -2 280 14 Q310 30 366 30 Q396 30 396 60 L396 940 Q396 970 366 970 Q310 970 280 986 Q240 1002 200 1002 Q160 1002 120 986 Q90 970 34 970 Q4 970 4 940Z"/>
+                    <path class="thin" d="M14 70 Q14 42 40 42 Q96 42 128 26 Q165 10 200 10 Q235 10 272 26 Q304 42 360 42 Q386 42 386 70 L386 930 Q386 958 360 958 Q304 958 272 974 Q235 990 200 990 Q165 990 128 974 Q96 958 40 958 Q14 958 14 930Z"/>
+                </svg>
 
-                <div class="fb-cards">
-                    <div class="fb-card right">
-                        <div class="label">والد العريس</div>
-                        <div class="name">ياسر آل الزوقري</div>
+                <!-- leaves -->
+                <span class="fb-leaf" style="--r:-30deg;top:11%;left:7%;animation-delay:0s"></span>
+                <span class="fb-leaf" style="--r:40deg;top:19%;right:5%;width:26px;height:32px;animation-delay:1.2s"></span>
+                <span class="fb-leaf" style="--r:-60deg;top:38%;left:4%;width:24px;height:30px;animation-delay:2s"></span>
+                <span class="fb-leaf" style="--r:20deg;top:47%;right:8%;width:20px;height:26px;animation-delay:.6s"></span>
+                <span class="fb-leaf" style="--r:-20deg;top:66%;left:3%;width:24px;height:30px;animation-delay:2.6s"></span>
+                <span class="fb-leaf" style="--r:50deg;top:80%;right:6%;width:30px;height:38px;animation-delay:1.6s"></span>
+
+                <div class="fb-wrap">
+                    <div class="fb-title">بمباركة أهلهما الكرام</div>
+                    <svg class="fb-divider" viewBox="0 0 400 22" aria-hidden="true"><use href="#fbDiv"/></svg>
+                    <div class="fb-subtitle">آل الزوقري وآل المقبلي</div>
+
+                    <div class="fb-tree">
+                        <div class="fb-heart">
+                            <svg viewBox="0 0 24 24" aria-hidden="true"><defs><linearGradient id="fbHeart" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#f7dfae"/><stop offset="1" stop-color="#c79b5e"/></linearGradient></defs><path d="M12 21s-7.5-4.6-9.6-9.3C1 8.4 2.9 5 6.2 5c2.1 0 3.8 1.2 4.8 2.9h2C14 6.2 15.7 5 17.800 5c3.300 0 5.200 3.400 3.800 6.700C19.500 16.400 12 21 12 21z" fill="url(#fbHeart)"/></svg>
+                        </div>
+                        <svg class="fb-lines" viewBox="0 0 420 118" fill="none" aria-hidden="true">
+                            <path class="ln" d="M210 0 C210 28 196 34 160 40 C124 46 112 56 112 100"/>
+                            <path class="ln" d="M210 0 C210 28 224 34 260 40 C296 46 308 56 308 100"/>
+                            <circle class="fade" cx="152" cy="38" r="2.4" fill="#d9b27a"/>
+                            <circle class="fade" cx="268" cy="38" r="2.4" fill="#d9b27a"/>
+                            <!-- centre ornament -->
+                            <g class="fade" transform="translate(210 62)">
+                                <path d="M0 -17 L11 0 L0 17 L-11 0Z" fill="#2a180b" stroke="url(#fbGold)" stroke-width="1.3"/>
+                                <path d="M0 -9 L6 0 L0 9 L-6 0Z" fill="none" stroke="#f3d9a4" stroke-width="1"/>
+                                <circle r="1.8" fill="#fff0cc"/>
+                                <path d="M0 17 V34" stroke="#d9b27a" stroke-width="1"/>
+                            </g>
+                        </svg>
                     </div>
-                    <div class="fb-card left">
-                        <div class="label">والد العروسة</div>
-                        <div class="name">أسامة آل المقبلي</div>
-                    </div>
-                </div>
 
-                <div class="fb-note">بقلوب مفعمة بالفرح والامتنان، يتشرف الأهل بدعوتكم للمشاركة في هذه الليلة المباركة</div>
+                    <div class="fb-cards">
+                        <div class="fb-card right">
+                            <svg class="frame" viewBox="0 0 200 150" preserveAspectRatio="none" aria-hidden="true">
+                                <path class="bg" d="M14 8 H92 Q100 14 108 8 H186 Q192 8 192 16 V58 Q198 75 192 92 V134 Q192 142 184 142 H108 Q100 136 92 142 H16 Q8 142 8 134 V92 Q2 75 8 58 V16 Q8 8 14 8Z"/>
+                                <path class="o" d="M14 8 H92 Q100 14 108 8 H186 Q192 8 192 16 V58 Q198 75 192 92 V134 Q192 142 184 142 H108 Q100 136 92 142 H16 Q8 142 8 134 V92 Q2 75 8 58 V16 Q8 8 14 8Z"/>
+                                <path class="i" d="M22 16 H90 Q100 22 110 16 H178 Q184 16 184 24 V126 Q184 134 176 134 H110 Q100 128 90 134 H24 Q16 134 16 126 V24 Q16 16 22 16Z"/>
+                            </svg>
+                            <svg class="orn t" viewBox="0 0 56 38" aria-hidden="true"><use href="#fbOrn"/></svg>
+                            <svg class="orn b" viewBox="0 0 56 38" aria-hidden="true"><use href="#fbOrn"/></svg>
+                            <div class="in">
+                                <div class="label">والد العريس</div>
+                                <svg class="sep" viewBox="0 0 160 10" aria-hidden="true"><path d="M0 5H70M90 5H160" stroke="#d9b27a" stroke-width="1" opacity=".8"/><path d="M80 0 L85 5 L80 10 L75 5Z" fill="#d9b27a"/></svg>
+                                <div class="name">ياسر آل الزوقري</div>
+                            </div>
+                        </div>
+                        <div class="fb-card left">
+                            <svg class="frame" viewBox="0 0 200 150" preserveAspectRatio="none" aria-hidden="true">
+                                <path class="bg" d="M14 8 H92 Q100 14 108 8 H186 Q192 8 192 16 V58 Q198 75 192 92 V134 Q192 142 184 142 H108 Q100 136 92 142 H16 Q8 142 8 134 V92 Q2 75 8 58 V16 Q8 8 14 8Z"/>
+                                <path class="o" d="M14 8 H92 Q100 14 108 8 H186 Q192 8 192 16 V58 Q198 75 192 92 V134 Q192 142 184 142 H108 Q100 136 92 142 H16 Q8 142 8 134 V92 Q2 75 8 58 V16 Q8 8 14 8Z"/>
+                                <path class="i" d="M22 16 H90 Q100 22 110 16 H178 Q184 16 184 24 V126 Q184 134 176 134 H110 Q100 128 90 134 H24 Q16 134 16 126 V24 Q16 16 22 16Z"/>
+                            </svg>
+                            <svg class="orn t" viewBox="0 0 56 38" aria-hidden="true"><use href="#fbOrn"/></svg>
+                            <svg class="orn b" viewBox="0 0 56 38" aria-hidden="true"><use href="#fbOrn"/></svg>
+                            <div class="in">
+                                <div class="label">والد العروسة</div>
+                                <svg class="sep" viewBox="0 0 160 10" aria-hidden="true"><path d="M0 5H70M90 5H160" stroke="#d9b27a" stroke-width="1" opacity=".8"/><path d="M80 0 L85 5 L80 10 L75 5Z" fill="#d9b27a"/></svg>
+                                <div class="name">أسامة آل المقبلي</div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="fb-note">بقلوب مفعمة بالفرح والامتنان،<br>يتشرف الأهل بدعوتكم للمشاركة في هذه الليلة المباركة</div>
+                    <svg class="fb-divider" style="opacity:1;margin:10px auto 18px" viewBox="0 0 400 22" aria-hidden="true"><use href="#fbDiv"/></svg>
+                    <a class="fb-loc" href="#loc-section">Location</a>
+                    <svg class="fb-divider" style="opacity:1;margin:14px auto 0;max-width:220px" viewBox="0 0 400 22" aria-hidden="true"><use href="#fbDiv"/></svg>
+                </div>
 
                 <script>
                     (function() {
                         var section = document.getElementById('fb-section');
                         if (!section) return;
+                        if (!('IntersectionObserver' in window)) { section.classList.add('fb-inview'); return; }
                         var observer = new IntersectionObserver(function(entries) {
                             entries.forEach(function(entry) {
                                 if (entry.isIntersecting) {
@@ -3504,12 +3524,13 @@
                                     observer.unobserve(section);
                                 }
                             });
-                        }, { threshold: 0.25 });
+                        }, { threshold: 0.2 });
                         observer.observe(section);
                     })();
                 </script>
             </div>
             <!-- ===== /Family Blessing Section ===== -->
+
 
             <div id="rec2443433783" class="r t-rec t-rec_pt_15" style="padding-top:15px;background-color:#f9e6d4; " data-animationappear="off" data-record-type="396" data-bg-color="#f9e6d4">
                 <!-- T396 -->
