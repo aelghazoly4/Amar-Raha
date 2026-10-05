@@ -39,7 +39,7 @@
         <link rel="stylesheet" type="text/css" href="/custom.css?t=1783250533">
         <link rel="preconnect" href="https://fonts.googleapis.com">
         <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-        <link href="https://fonts.googleapis.com/css2?family=Amiri:wght@400;700&family=EB+Garamond:ital@1&display=swap" rel="stylesheet">
+        <link href="https://fonts.googleapis.com/css2?family=Amiri:wght@400;700&family=Aref+Ruqaa:wght@400;700&family=Cormorant+Garamond:ital,wght@0,500;1,400;1,500&family=EB+Garamond:ital@1&display=swap" rel="stylesheet">
         <script nomodule src="https://static.tildacdn.net/js/tilda-polyfill-1.0.min.js" charset="utf-8"></script>
         <script type="text/javascript">
             function t_onReady(func) {
@@ -2437,86 +2437,57 @@
                 <div class="wg-frame-verse-wrap">
                     <style>
                         .wg-frame-verse-wrap { display:flex; justify-content:center; padding: 30px 16px 40px; }
-                        .wg-frame-verse {
-                            position: relative;
-                            width: 100%;
-                            max-width: 480px;
-                        }
-                        .wg-frame-verse .wg-frame-img { display:block; width:100%; height:auto; }
-                        .wg-frame-verse-text {
-                            position: absolute;
-                            top: 24%;
-                            left: 6%;
-                            right: 6%;
-                            bottom: 4%;
-                            display: flex;
-                            flex-direction: column;
-                            align-items: center;
-                            justify-content: flex-start;
+                        .wg-frame-verse { position: relative; width: 100%; max-width: 480px; container-type: inline-size; }
+                        .wg-frame-card {
+                            box-sizing: border-box;
+                            border-style: solid;
+                            border-color: transparent;
+                            border-width: 43.4cqw 0 10.1cqw 0;
+                            border-image: url("https://static.tildacdn.net/tild6634-6438-4366-b831-343330323762/frsame_1.png") 300 0 70 0 fill / 43.4cqw 0 10.1cqw 0 stretch;
+                            min-height: 200cqw;
+                            padding: 0 8cqw 3cqw;
                             text-align: center;
-                            overflow: visible;
-                            background: transparent;
-                            padding: 22px 16px;
                         }
-                        .wg-frame-verse-bismillah {
-                            direction: rtl;
-                            font-family: 'Amiri', 'Scheherazade New', 'Traditional Arabic', 'NewFonts', serif;
-                            font-weight: 700;
-                            font-size: clamp(24px, 6.5vw, 30px);
-                            color: #5a3f16;
-                            margin: 0 0 14px;
-                        }
-                        .wg-frame-verse-arabic {
-                            direction: rtl;
-                            font-family: 'Amiri', 'Scheherazade New', 'Traditional Arabic', 'NewFonts', serif;
-                            font-weight: 700;
-                            font-size: clamp(24px, 6.6vw, 30px);
-                            line-height: 1.85;
-                            color: #201509;
-                            text-shadow: none;
-                            margin: 0 0 14px;
-                        }
-                        .wg-frame-verse-rule {
-                            width: 46px;
-                            height: 1px;
-                            background: #866739;
-                            opacity: 0.7;
-                            margin: 2px 0 14px;
-                        }
-                        .wg-frame-verse-en {
-                            font-family: 'Ovo','EB Garamond',Georgia,serif;
-                            font-style: italic;
-                            font-weight: 500;
-                            font-size: clamp(16px, 4.2vw, 19px);
-                            line-height: 1.6;
-                            color: #362509;
-                            text-shadow: none;
-                            margin: 0 0 10px;
-                        }
-                        .wg-frame-verse-cite {
-                            font-family: 'NewFonts',Arial,sans-serif;
-                            font-weight: 700;
-                            font-size: clamp(10.5px, 2.7vw, 12px);
-                            letter-spacing: 2.5px;
-                            color: #55380f;
-                            text-transform: uppercase;
-                        }
-                        @media screen and (max-width: 479px) {
-                            .wg-frame-verse-text { top: 21%; left: 6%; right: 6%; bottom: 3%; padding: 16px 12px; }
-                        }
+                        .wg-frame-body { margin-top: -14cqw; display:flex; flex-direction:column; align-items:center; }
+                        .wg-frame-body p { margin: 0; }
+                        .wg-ar { direction: rtl; font-family: 'Amiri','Scheherazade New','Traditional Arabic',serif; font-weight: 400; }
+                        .wg-en { direction: ltr; font-family: 'EB Garamond','Ovo',Georgia,serif; font-style: italic; font-weight: 400; }
+                        .wg-t-ar { font-family: 'Aref Ruqaa','Amiri',serif; font-weight: 700; font-size: 10.5cqw; line-height: 1.4; color: #b08450; padding-bottom: 1cqw; }
+                        .wg-t-en { font-family: 'Cormorant Garamond','EB Garamond',Georgia,serif; font-style: italic; font-weight: 500; text-transform: uppercase; letter-spacing: .26em; font-size: max(10px, 2.7cqw); color: #a88c66; margin-top: 2.5cqw !important; padding-left: .26em; }
+                        .wg-orn { display:flex; align-items:center; justify-content:center; width: 74cqw; margin: 5.5cqw 0; }
+                        .wg-orn i { flex:1; height:1px; background: linear-gradient(90deg, transparent, #c4a574 45%, #c4a574); }
+                        .wg-orn i:last-child { background: linear-gradient(270deg, transparent, #c4a574 45%, #c4a574); }
+                        .wg-orn svg { width: 7.2cqw; height: 7.2cqw; margin: 0 2cqw; flex: none; }
+                        .wg-b-ar { font-size: 5.3cqw; line-height: 1.72; color: #8a6a45; }
+                        .wg-b-en { font-size: max(12px, 3.35cqw); line-height: 1.72; letter-spacing: .075em; color: #8d7250; margin-top: 4cqw !important; }
+                        .wg-names { display:flex; align-items:center; justify-content:center; direction: rtl; gap: 1cqw; margin-top: 7cqw; font-family:'Aref Ruqaa','Amiri',serif; font-weight:700; font-size: 17cqw; line-height: 1.1; color: #6a4720; }
+                        .wg-amp { position:relative; flex:none; direction:ltr; font-family:'Cormorant Garamond','EB Garamond',Georgia,serif; font-style:italic; font-weight:500; font-size: 24cqw; line-height: 1; color:#6a4720; padding: 0 1cqw; }
+                        .wg-amp svg { position:absolute; left: 50%; top: 50%; width: 9cqw; height: 9cqw; transform: translate(-45%,-30%); }
+                        .wg-names-en { font-family: 'Cormorant Garamond','EB Garamond',Georgia,serif; font-weight: 500; text-transform: uppercase; letter-spacing: .42em; padding-left:.42em; font-size: max(14px, 4.3cqw); color: #6f5a3f; margin-top: 2.5cqw !important; }
+                        .wg-close-ar { font-family:'Aref Ruqaa','Amiri',serif; font-weight:700; font-size: 6.3cqw; color: #6a4a28; margin-top: 8cqw !important; line-height: 1.5; }
+                        .wg-close-en { font-family:'EB Garamond',Georgia,serif; font-style: italic; text-transform: uppercase; letter-spacing: .2em; padding-left:.2em; font-size: max(9.5px, 2.5cqw); color: #a88c66; margin-top: 1.5cqw !important; }
                     </style>
                     <div class="wg-frame-verse">
-                        <img class="wg-frame-img" src="https://static.tildacdn.net/tild6634-6438-4366-b831-343330323762/frsame_1.png" alt=""/>
-                        <div class="wg-frame-verse-text">
-                            <p class="wg-frame-verse-bismillah">بِسْمِ اللَّهِ الرَّحْمَٰنِ الرَّحِيمِ</p>
-                            <p class="wg-frame-verse-arabic">
-                                وَمِنْ آيَاتِهِ أَنْ خَلَقَ لَكُمْ مِنْ أَنفُسِكُمْ أَزْوَاجًا لِتَسْكُنُوا إِلَيْهَا وَجَعَلَ بَيْنَكُم مَوَدَّةً وَرَحْمَةً ۚ إِنَّ فِي ذَٰلِكَ لَآيَاتٍ لِقَوْمٍ يَتَفَكَّرُونَ
-                            </p>
-                            <div class="wg-frame-verse-rule"></div>
-                            <p class="wg-frame-verse-en">
-                                "And among His signs is that He created for you mates from among yourselves, that you may find tranquility in them, and He placed between you affection and mercy. Indeed in that are signs for a people who reflect."
-                            </p>
-                            <div class="wg-frame-verse-cite">Surah Ar-Rum — 30:21</div>
+                        <div class="wg-frame-card">
+                            <div class="wg-frame-body">
+                                <p class="wg-t-ar">على موعد مع العمر</p>
+                                <p class="wg-t-en">A Promise for a Lifetime</p>
+                                <div class="wg-orn"><i></i><svg viewBox="0 0 40 40" aria-hidden="true"><g fill="#c4a574"><path d="M20 3c3 5 3 9 0 12-3-3-3-7 0-12z"/><path d="M20 37c3-5 3-9 0-12-3 3-3 7 0 12z"/><path d="M3 20c5-3 9-3 12 0-3 3-7 3-12 0z"/><path d="M37 20c-5-3-9-3-12 0 3 3 7 3 12 0z"/><circle cx="20" cy="20" r="3"/></g></svg><i></i></div>
+                                <p class="wg-ar wg-b-ar">حين تتلاقي القلوب على المودة،<br>ويختار قلبٌ قلبًا ليكون رفيق الدرب،<br>تبدأ حكايةٌ لا تشبه سواها ...</p>
+                                <p class="wg-en wg-b-en">When two hearts meet in affection<br>and choose one another for the journey ahead,<br>a story unlike any other begins ...</p>
+                                <div class="wg-names">
+                                    <span>عمار</span>
+                                    <span class="wg-amp" aria-hidden="true">&amp;<svg viewBox="0 0 40 40"><g fill="#6a4720"><path d="M4 30C14 24 24 16 36 8" stroke="#6a4720" stroke-width="1" fill="none"/><path d="M10 26c1-5 5-8 9-8-1 5-4 8-9 8z"/><path d="M17 21c1-5 5-8 9-8-1 5-4 8-9 8z"/><path d="M24 15c1-4 4-7 8-7-1 4-4 7-8 7z"/></g></svg></span>
+                                    <span>رها</span>
+                                </div>
+                                <p class="wg-names-en">Amar &amp; Raha</p>
+                                <div class="wg-orn" style="margin-top:6cqw"><i></i><svg viewBox="0 0 40 40" aria-hidden="true"><g fill="#c4a574"><path d="M20 3c3 5 3 9 0 12-3-3-3-7 0-12z"/><path d="M20 37c3-5 3-9 0-12-3 3-3 7 0 12z"/><path d="M3 20c5-3 9-3 12 0-3 3-7 3-12 0z"/><path d="M37 20c-5-3-9-3-12 0 3 3 7 3 12 0z"/><circle cx="20" cy="20" r="3"/></g></svg><i></i></div>
+                                <p class="wg-ar wg-b-ar">اليوم لا نحتفل بلقاء قلبين فحسب،<br>بل ببداية عمر واحد،<br>تظله المحبة، ويزينه الوفاء،<br>وترافقه دعوات الأحبة أينما مضيا.</p>
+                                <p class="wg-en wg-b-en">Today marks more than the union of two hearts;<br>it is the beginning of one beautiful lifetime,<br>filled with love, devotion,<br>and the blessings of those they hold dear.</p>
+                                <p class="wg-close-ar">ومن هنا ... تبدأ أجمل الحكايات .</p>
+                                <p class="wg-close-en">And from here ... their forever begins.</p>
+                                <div class="wg-orn" style="margin-top:5cqw;margin-bottom:0"><i></i><svg viewBox="0 0 40 40" aria-hidden="true"><g fill="#c4a574"><path d="M20 3c3 5 3 9 0 12-3-3-3-7 0-12z"/><path d="M20 37c3-5 3-9 0-12-3 3-3 7 0 12z"/><path d="M3 20c5-3 9-3 12 0-3 3-7 3-12 0z"/><path d="M37 20c-5-3-9-3-12 0 3 3 7 3 12 0z"/><circle cx="20" cy="20" r="3"/></g></svg><i></i></div>
+                            </div>
                         </div>
                     </div>
                 </div>
